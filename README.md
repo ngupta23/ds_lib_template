@@ -7,22 +7,25 @@ A standard data science library template
 1. Serves as a common repository for common tasks in workflows
 2. Unit tested to ensure confidence in functionality
     - unit tests can be parameterized to speed up testing without the need for boiler plate code
+    - fixtures & utils allow for writing common test code and testing with a variety of settings
 
 ```
 > pytest tests -v
 ```
 
 ```
-tests/test_outlier.py::test_deviation[data0-StdDevOutlierDetection] PASSED                                                                                                           [ 25%]
-tests/test_outlier.py::test_deviation[data0-MADOutlierDetection] PASSED                                                                                                              [ 50%]
-tests/test_outlier.py::test_deviation[data1-StdDevOutlierDetection] PASSED                                                                                                           [ 75%] 
+tests/test_outlier.py::test_no_outliers[StdDevOutlierDetection] PASSED                                                                                                               [ 16%]
+tests/test_outlier.py::test_no_outliers[MADOutlierDetection] PASSED                                                                                                                  [ 33%]
+tests/test_outlier.py::test_deviation[data0-StdDevOutlierDetection] PASSED                                                                                                           [ 50%]
+tests/test_outlier.py::test_deviation[data0-MADOutlierDetection] PASSED                                                                                                              [ 66%]
+tests/test_outlier.py::test_deviation[data1-StdDevOutlierDetection] PASSED                                                                                                           [ 83%]
 tests/test_outlier.py::test_deviation[data1-MADOutlierDetection] PASSED                                                                                                              [100%]
+
+==================================================================================== 6 passed in 0.08s ====================================================================================
 ```
 
 3. Includes tools to assist developers in day to day tasks
     - Formatting is consistent and automatically applied by `black`
-    - Order of imports is consistent and automatically applied by `isort`
-    - Inconsistencies in code are automatically pointed out by `flake8`
 
 ```
 black .
@@ -32,6 +35,8 @@ black .
 All done! ✨ 🍰 ✨
 14 files left unchanged.
 ```
+
+    - Inconsistencies in code are automatically pointed out by `flake8`
 
 ```
 flake8 .
@@ -56,6 +61,8 @@ flake8 .
 .\tests\test_outlier.py:55:5: E266 too many leading '#' for block comment
 .\tests\utils.py:15:80: E501 line too long (92 > 79 characters)
 ```
+
+    - Order of imports is consistent and automatically applied by `isort`
 
 ```
 isort .
