@@ -58,6 +58,17 @@ class BaseOutlierDetection(ABC):
             Class object for chaining
         """
 
+    def run_workflow(self) -> "BaseOutlierDetection":
+        """Runs the entire workflow.
+
+        Returns
+        -------
+        BaseOutlierDetection
+            Class object for chaining
+        """
+        self.detect_outliers().correct_outliers()
+        return self
+
     def get_corrected_data(self) -> pd.Series:
         """Returns the corrected data.
 

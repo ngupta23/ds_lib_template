@@ -2,10 +2,7 @@ import logging
 
 import pandas as pd
 
-from ds_lib_template.outlier.deviation import (
-    MADOutlierDetection,
-    StdDevOutlierDetection,
-)
+from ds_lib_template.outlier.deviation import StdDevOutlierDetection
 
 # Get data from your main data source (mocking it here)
 data = pd.Series(
@@ -14,19 +11,10 @@ data = pd.Series(
 
 # Get your logger from your environment (mocking it here)
 logger = logging.getLogger("my_logger")
-# formatter = logging.Formatter(
-#     "%(asctime)s | %(levelname)s | %(message)s", "%m-%d-%Y %H:%M:%S"
-# )
-# logger.setFormatter(formatter)
-# logger.setLevel(logging.DEBUG)
-# logger.info("INFO")
-# logger.warning("WARN")
-# logger.error("ERROR")
 
 # Run your main code
 std_od = StdDevOutlierDetection(data=data, logger=logger)
-std_od.detect_outliers().correct_outliers()
-corrected = std_od.get_corrected_data()
+corrected = std_od.run_workflow().get_corrected_data()
 logger.info(f"Corrected data (STD DEV): {corrected}")
 
 logger.info("DONE")

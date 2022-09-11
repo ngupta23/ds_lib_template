@@ -3,10 +3,8 @@
 import pytest
 from pandas.testing import assert_series_equal
 
-from ds_lib_template.outlier.deviation import (
-    MADOutlierDetection,
-    StdDevOutlierDetection,
-)
+from ds_lib_template.outlier.deviation import (MADOutlierDetection,
+                                               StdDevOutlierDetection)
 
 from .utils import _load_deviation_classes, _load_ll_ul_outlier_data
 
@@ -35,8 +33,7 @@ datasets = _load_ll_ul_outlier_data()
 def test_no_outliers(detector_class, no_outlier_data):
     """Tests outlier detection when data has no outliers"""
     outlier_detector = detector_class(data=no_outlier_data)
-    outlier_detector.detect_outliers().correct_outliers()
-    corrected = outlier_detector.get_corrected_data()
+    corrected = outlier_detector.run_workflow().get_corrected_data()
 
     #### Test points that are not outliers ----
     assert_series_equal(corrected, no_outlier_data)
@@ -47,8 +44,7 @@ def test_no_outliers(detector_class, no_outlier_data):
 def test_deviation(detector_class, data):
     """Tests the splitter creation using fold, fh and a string value for fold_strategy."""
     outlier_detector = detector_class(data=data)
-    outlier_detector.detect_outliers().correct_outliers()
-    corrected = outlier_detector.get_corrected_data()
+    corrected = outlier_detector.run_workflow().get_corrected_data()
 
     #### General checks ----
     assert len(corrected) == len(data)
