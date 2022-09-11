@@ -26,6 +26,8 @@ tests/test_outlier.py::test_deviation[data1-MADOutlierDetection] PASSED         
 
 3. Includes tools to assist developers in day to day tasks
     - Formatting is consistent and automatically applied by `black`
+    - Inconsistencies in code are automatically pointed out by `flake8`
+    - Order of imports is consistent and automatically applied by `isort`
 
 ```
 black .
@@ -35,8 +37,6 @@ black .
 All done! ✨ 🍰 ✨
 14 files left unchanged.
 ```
-
-    - Inconsistencies in code are automatically pointed out by `flake8`
 
 ```
 flake8 .
@@ -61,8 +61,6 @@ flake8 .
 .\tests\test_outlier.py:55:5: E266 too many leading '#' for block comment
 .\tests\utils.py:15:80: E501 line too long (92 > 79 characters)
 ```
-
-    - Order of imports is consistent and automatically applied by `isort`
 
 ```
 isort .
