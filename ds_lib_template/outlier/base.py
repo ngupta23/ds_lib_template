@@ -66,7 +66,7 @@ class BaseOutlierDetection(ABC):
         BaseOutlierDetection
             Class object for chaining
         """
-        self.detect_outliers().correct_outliers()
+        self.set_limits().detect_outliers().correct_outliers()
         return self
 
     def get_corrected_data(self) -> pd.Series:
