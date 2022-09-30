@@ -42,7 +42,7 @@ def test_no_outliers(detector_class, no_outlier_data):
 @pytest.mark.parametrize("detector_class", deviation_classes)
 @pytest.mark.parametrize("data", datasets)
 def test_deviation(detector_class, data):
-    """Tests the splitter creation using fold, fh and a string value for fold_strategy."""
+    """Tests the deviation based outlier methods with both positive and negative outliers."""
     outlier_detector = detector_class(data=data)
     corrected = outlier_detector.run_workflow().get_corrected_data()
 
