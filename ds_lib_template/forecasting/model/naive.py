@@ -11,7 +11,7 @@ class NaiveForecaster(BaseForecaster):
         super(NaiveForecaster, self).__init__()
 
     def _fit(
-        self, y: pd.Series, X: Optional[pd.DataFrame] = None, fh=None
+        self, y: pd.Series, X: Optional[pd.DataFrame] = None, fh: Optional[int] = None
     ) -> "BaseForecaster":
         """Fit to training data.
 
@@ -21,7 +21,7 @@ class NaiveForecaster(BaseForecaster):
             Target time series to which to fit the forecaster.
         X : pd.DataFrame, optional
             Exogenous variables, by default None
-        fh : _type_, optional
+        fh : Optional[int], optional
             The forecasters horizon with the steps ahead to to predict, by default None
 
         Returns
