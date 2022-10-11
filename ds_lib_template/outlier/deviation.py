@@ -71,6 +71,8 @@ class BaseDeviationDetection(BaseOutlierDetection):
         self.ul = self.center + self.multiplier * self.deviation
         self.ll = self.center - self.multiplier * self.deviation
 
+        return self
+
     def correct_outliers(self) -> "BaseOutlierDetection":
         """Corrects outliers in the data. Sets the `corrected` attribute.
 
