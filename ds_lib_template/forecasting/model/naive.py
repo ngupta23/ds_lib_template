@@ -1,7 +1,8 @@
-from ds_lib_template.forecasting.model.base import BaseForecaster
 from typing import Optional
 
 import pandas as pd
+
+from ds_lib_template.forecasting.model.base import BaseForecaster
 
 
 class NaiveForecaster(BaseForecaster):

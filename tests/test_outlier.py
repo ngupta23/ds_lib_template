@@ -3,8 +3,10 @@
 import pytest
 from pandas.testing import assert_series_equal
 
-from ds_lib_template.outlier.deviation import (MADOutlierDetection,
-                                               StdDevOutlierDetection)
+from ds_lib_template.outlier.deviation import (
+    MADOutlierDetection,
+    StdDevOutlierDetection,
+)
 
 from .utils import _load_deviation_classes, _load_ll_ul_outlier_data
 
@@ -46,10 +48,10 @@ def test_deviation(detector_class, data):
     outlier_detector = detector_class(data=data)
     corrected = outlier_detector.run_workflow().get_corrected_data()
 
-    #### General checks ----
+    # General checks ----
     assert len(corrected) == len(data)
 
-    #### Test center and deviation ----
+    # Test center and deviation ----
     if isinstance(outlier_detector, StdDevOutlierDetection):
         assert outlier_detector.center == data.mean()
         assert outlier_detector.deviation == data.std()
@@ -57,9 +59,9 @@ def test_deviation(detector_class, data):
         assert outlier_detector.center == data.median()
         assert outlier_detector.deviation == data.mad()
 
-    #### Test points that are not outliers ----
+    # Test points that are not outliers ----
     for i in range(len(data) - 1):
         assert corrected.iloc[i] == data.iloc[i]
 
-    #### Test outlier ----
+    # Test outlier ----
     assert corrected.iloc[-1] != data.iloc[-1]

@@ -3,8 +3,10 @@
 
 import numpy as np
 import pandas as pd
+
+from ds_lib_template.forecasting.components.dummy import \
+    DummyForecastingComponent
 from ds_lib_template.forecasting.model.naive import NaiveForecaster
-from ds_lib_template.forecasting.components.dummy import DummyForecastingComponent
 
 
 def test_component_splitter():

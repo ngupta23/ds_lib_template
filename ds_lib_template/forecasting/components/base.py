@@ -1,6 +1,6 @@
 import logging
 from abc import ABC, abstractmethod
-from typing import Optional, Any, List, Tuple
+from typing import Any, List, Optional, Tuple
 
 import pandas as pd
 
