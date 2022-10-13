@@ -1,7 +1,9 @@
 import pandas as pd
 
-from ds_lib_template.outlier.deviation import (MADOutlierDetection,
-                                               StdDevOutlierDetection)
+from ds_lib_template.outlier.deviation import (
+    MADOutlierDetection,
+    StdDevOutlierDetection,
+)
 
 
 def _load_deviation_classes():

@@ -10,6 +10,7 @@ import pandas as pd
 
 class BaseForecaster(ABC):
     def __init__(self):
+        self.model = None
         self._is_fitted = False
 
         self._y = None
@@ -17,7 +18,6 @@ class BaseForecaster(ABC):
 
         # forecasting horizon
         self._fh = None
-        self._is_fitted = False
 
     @property
     def is_fitted(self):

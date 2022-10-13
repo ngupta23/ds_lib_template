@@ -117,15 +117,6 @@ class BaseComponentSplitter(ABC):
         """Sets the other (unknown and/or model specific) components of the
         forecast (self.component_others)"""
 
-    def run_workflow(self) -> "BaseComponentSplitter":
-        """Runs the entire workflow.
-
-        Returns
-        -------
-        BaseComponentSplitter
-            Class object for chaining
-        """
-
     def get_component_trend(self) -> pd.Series:
         """Returns the trend component of the forecast
 
@@ -136,7 +127,7 @@ class BaseComponentSplitter(ABC):
         """
         if self.component_trend is None:
             raise ValueError(
-                "Trend component has not been set. Please run the workflow before "
+                "Trend component has not been set. Please run `predict` before "
                 "fetching the components of the forecast."
             )
 
@@ -152,7 +143,7 @@ class BaseComponentSplitter(ABC):
         """
         if self.component_seasonality is None:
             raise ValueError(
-                "Seasonality component has not been set. Please run the workflow "
+                "Seasonality component has not been set. Please run `predict` "
                 "before fetching the components of the forecast."
             )
 
@@ -168,7 +159,7 @@ class BaseComponentSplitter(ABC):
         """
         if self.component_drivers is None:
             raise ValueError(
-                "Driver components have not been set. Please run the workflow "
+                "Driver components have not been set. Please run `predict` "
                 "before fetching the components of the forecast."
             )
 
@@ -184,7 +175,7 @@ class BaseComponentSplitter(ABC):
         """
         if self.component_holidays is None:
             raise ValueError(
-                "Holiday components have not been set. Please run the workflow "
+                "Holiday components have not been set. Please run `predict` "
                 "before fetching the components of the forecast."
             )
 
@@ -201,7 +192,7 @@ class BaseComponentSplitter(ABC):
         """
         if self.component_others is None:
             raise ValueError(
-                "Other components have not been set. Please run the workflow "
+                "Other components have not been set. Please run `predict` "
                 "before fetching the components of the forecast."
             )
 
